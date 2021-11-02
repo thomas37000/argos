@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function Form() {
   const Wrapper = styled.section`
-    padding: 4rem;
+    padding: 4em;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       90deg,
@@ -12,26 +12,51 @@ export default function Form() {
     );
     color: #f1f1f1;
   `;
-  
+
+  const Label = styled.label`
+    padding: 0.5rem;
+  `;
+
+  const Input = styled.input.attrs(({ type }) => ({
+    type: type || "text",
+  }))`
+    margin: 1.5vh 0;
+    padding: 0.5rem 1rem;
+  `;
+
+  const Inputt = styled.input.attrs({
+    type: "submit",
+    value: "Submit",
+  })`
+    background: "#fff";
+    color: blue;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid blue;
+    border-radius: 5px;
+  `;
+
   return (
     <>
       <Wrapper>
         <form className="">
-          <label>
+          <Label>
             Name:
-            <input type="text" name="nom" placeholder="Charalampos" />
-          </label>
+            <Input name="nom" placeholder="Charalampos" />
+          </Label>
 
-          <label>
+          <Label>
             genre:
-            <input type="text" name="genre" placeholder="Homme" />
-          </label>
+            <Input name="genre" placeholder="Homme" />
+          </Label>
 
-          <label>
+          <Label>
             age:
-            <input type="text" name="age" placeholder="23" className="" />
-          </label>
-          <input type="submit" value="Submit" />
+            <Input name="age" placeholder="23" />
+          </Label>
+
+          <Inputt />
         </form>
       </Wrapper>
     </>
