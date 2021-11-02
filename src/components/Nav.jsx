@@ -1,7 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import "../App.css";
 
 const Nav = () => {
+  const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: #f1f1f1;
+  `;
+
+  const Wrapper = styled.section`
+    padding: 4em;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      90deg,
+      rgba(9, 9, 121, 1) 5%,
+      rgba(0, 212, 255, 1) 100%
+    );
+  `;
   return (
     <>
       <header>
@@ -10,6 +26,9 @@ const Nav = () => {
           alt="Wild Code School logo"
         />
       </header>
+      <Wrapper>
+        <Title>Argonautes</Title>
+      </Wrapper>
     </>
   );
 };
