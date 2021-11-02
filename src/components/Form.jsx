@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import styled from "styled-components";
 
 export default function Form() {
+  const [argonautes, setArgonautes] = useState({ nom: "", age: "", genre: "" });
+  
   const Wrapper = styled.section`
     padding: 2em;
     background: rgb(2, 0, 36);
@@ -43,7 +46,7 @@ export default function Form() {
         <h2>Ajouter un(e) Argonaute</h2>
         <form className="">
           <Label>
-            Nom de l'Argonaute
+            Nom de l'Argonaute:
             <Input name="nom" placeholder="Charalampos" />
           </Label>
 
