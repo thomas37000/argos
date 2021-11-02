@@ -14,7 +14,7 @@ export default function Equipage() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080')
+      .get('http://localhost:8080/argonautes')
       .then((res) => res.data)
       .then((data) => {
         setEquipages(data);
