@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import "../App.css";
+import Equipage from "./Equipage";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <main>
         <Form />
         <h2>Membres de l'équipage</h2>
+        <Equipage />
       </main>
 
       <footer>
