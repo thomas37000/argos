@@ -1,13 +1,11 @@
-import logo from './logo.svg';
-import Form from './components/Form';
-import './App.css';
+import Form from "./components/Form";
+import Nav from "./components/Nav";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
+      <Nav />
       <Form />
     </div>
   );
