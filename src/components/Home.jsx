@@ -6,8 +6,6 @@ const Home = () => {
   return (
     <div className="App">
       <main>
-        <h1> Les Argonautes</h1>
-        <h2>Ajouter un(e) Argonaute</h2>
         <Form />
         <h2>Membres de l'équipage</h2>
       </main>

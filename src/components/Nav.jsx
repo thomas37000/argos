@@ -10,7 +10,7 @@ const Nav = () => {
   `;
 
   const Wrapper = styled.section`
-    padding: 4em;
+    padding: 2em;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       90deg,

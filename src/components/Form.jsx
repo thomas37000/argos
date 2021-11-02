@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export default function Form() {
   const Wrapper = styled.section`
-    padding: 4em;
+    padding: 2em;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       90deg,
@@ -40,9 +40,10 @@ export default function Form() {
   return (
     <>
       <Wrapper>
+        <h2>Ajouter un(e) Argonaute</h2>
         <form className="">
           <Label>
-            Name:
+            Nom de l'Argonaute
             <Input name="nom" placeholder="Charalampos" />
           </Label>
 
