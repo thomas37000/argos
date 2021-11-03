@@ -1,15 +1,15 @@
 import React from "react";
-import Form from "./Form";
-import "../App.css";
 import Equipage from "./Equipage";
+import Formulaire from "./Formulaire";
+import "../App.css";
 
 const Home = () => {
   return (
     <div className="App">
       <main>
-        <Form />
+        <Formulaire />
         <h2>Membres de l'équipage</h2>
-        <Equipage />
+        {/* <Equipage /> */}
       </main>
 
       <footer>
