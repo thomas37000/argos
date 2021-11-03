@@ -5,16 +5,16 @@ import Card from "./Card";
 export default function Equipage() {
   const [equipages, setEquipages] = useState([]);
 
-  //   const deleteArgonaute = (idEquipage) => {
-  //     const filteredArgonaute = equipages.filter(
-  //       (equipage) => equipage.idEquipage !== idEquipage
-  //     );
-  //     setEquipages(filteredArgonaute);
-  //   };
+  const deleteArgonaute = (idEquipage) => {
+    const filteredArgonaute = equipages.filter(
+      (equipage) => equipage.idEquipage !== idEquipage
+    );
+    setEquipages(filteredArgonaute);
+  };
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/argonautes')
+      .get("http://localhost:8080/argonautes")
       .then((res) => res.data)
       .then((data) => {
         setEquipages(data);
@@ -35,8 +35,12 @@ export default function Equipage() {
   return (
     <>
       <div>
-        {equipages.map((equipage) => (
-          <Card {...equipage} key={equipage.id} />
+        {equipages.map((equipage, i) => (
+          <Card
+            {...equipage}
+            key={i}
+            handleClick={() => deleteArgonaute(equipage.idEquipage)}
+          />
         ))}
       </div>
     </>
