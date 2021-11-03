@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { firebaseConfig } from "../utils/firebaseConfig";
+import { db, firebaseConfig } from "../utils/firebaseConfig";
+import { collection, addDoc } from "@firebase/firestore";
 import styled from "styled-components";
 
 const Wrapper = styled.section`
@@ -15,48 +16,35 @@ const Wrapper = styled.section`
 
 const Formulaire = () => {
   const [nom, setNoms] = useState("");
-  const [age, setAges] = useState("");
-  const [genre, setGenres] = useState("");
+  //   const [age, setAges] = useState("");
+  //   const [genre, setGenres] = useState("");
 
-  //   const uid = useContext(UidContext);
-
-  const Formulaire = () => {
-    const argosDB = firebaseConfig.database().ref("argosDB");
-    const argonaute = {
-      //   idArgonaute,
+  const handleChange = async (event) => {
+    event.preventDefault();
+    await addDoc(collection(db, "nom"), {
       nom,
-      age,
-      genre,
-    };
-
-    argosDB.push(argonaute);
+    });
 
     setNoms("");
-    setAges("");
-    setGenres("");
   };
 
   return (
     <>
       <Wrapper>
         <div className="Formulaire">
-          <h4>Ajouter un Argonaute</h4>
-          <div className="form">
-            <input
-              type="text"
-              placeholder="Charalampos"
-              value={nom}
-              onChange={(e) => setNoms(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="23"
-              value={age}
-              onChange={(e) => setAges(e.target.value)}
-            />
+          <form onSubmit={handleChange}>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="nom"
+                placeholder="Charalampos"
+                onChange={(e) => setNoms(e.target.value)}
+              />
+            </label>
 
-            <button onClick={Formulaire}>Submit</button>
-          </div>
+            <input type="submit" value="Submit" />
+          </form>
         </div>
       </Wrapper>
     </>
