@@ -20,3 +20,10 @@ footer {
   background: #f76c6c;
   padding: 0.25em 0;
 }
+
+.cardDiv {
+  width: 450px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
