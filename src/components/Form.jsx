@@ -22,22 +22,20 @@ export default function Form() {
 
   const addNewArgonaute = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8080/argonautes", {
-        nom: nom,
-        age: age,
-        genre: genre,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log("error: ", err));
-  };
-
-  const handleChange = (event) => {
-    setNoms({ nom: event.target.value });
-    setAges({ age: event.target.value });
-    setGenres({ genre: event.target.value });
+    if (nom && age && genre) {
+      axios
+        .post("http://localhost:8080/argonautes", {
+          nom: nom,
+          age: age,
+          genre: genre,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.log("error: ", err));
+    }else {
+      // setError
+    }
   };
 
   return (
@@ -50,7 +48,7 @@ export default function Form() {
               type="text"
               name="nom"
               placeholder="Charalampos"
-              onChange={handleChange}
+              onChange={(event) => setNoms(event.target.value)}
             />
           </label>
 
@@ -60,13 +58,18 @@ export default function Form() {
               type="text"
               name="genre"
               placeholder="Homme"
-              onChange={handleChange}
+              onChange={(event) => setGenres(event.target.value)}
             />
           </label>
 
           <label>
             age:
-            <input type="text" name="age" placeholder="23" onChange={handleChange} />
+            <input
+              type="text"
+              name="age"
+              placeholder="23"
+              onChange={(event) => setAges(event.target.value)}
+            />
           </label>
           <input type="submit" value="Submit" />
         </form>
